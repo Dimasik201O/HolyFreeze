@@ -3,6 +3,7 @@ package org.dimasik.holyfreeze;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -22,9 +23,12 @@ public final class HolyFreeze extends JavaPlugin {
     public HashMap<Player, StatusFreeze> statusFreezeHashMap = new HashMap<>();
     private PAPIFreeze papiFreeze;
     private CommandFreeze commandFreeze;
+    public static FileConfiguration config;
 
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+        config = getConfig();
         commandFreeze = new CommandFreeze(this);
         getCommand("freezing").setExecutor(commandFreeze);
         getCommand("prova").setExecutor(commandFreeze);

@@ -40,8 +40,8 @@ public class Freeze {
         suspectLocation = suspect.getLocation();
 
         if(teleport) {
-            World spawn = Bukkit.getWorld("spawn");
-            checkLocation = new Location(spawn, 127.5, 144.00, -10.5, 0, 0);
+            World spawn = Bukkit.getWorld(HolyFreeze.config.getString("location.world", "spawn"));
+            checkLocation = new Location(spawn, HolyFreeze.config.getDouble("location.x"), HolyFreeze.config.getDouble("location.y"), HolyFreeze.config.getDouble("location.z"), (float) HolyFreeze.config.getDouble("location.yaw"), (float) HolyFreeze.config.getDouble("location.pitch"));
             suspect.teleport(checkLocation);
         }
 
