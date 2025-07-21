@@ -37,11 +37,11 @@ public class PAPIFreeze extends PlaceholderExpansion {
     @Override
     public @Nullable String onPlaceholderRequest(Player player, @NotNull String params) {
         if (params.equalsIgnoreCase("status")) {
-            if(plugin.statusFreezeHashMap.get(player) == null){
+            if(plugin.statusFreezeHashMap.get(player.getUniqueId()) == null){
                 return "";
             }
             else{
-                switch (plugin.statusFreezeHashMap.get(player)){
+                switch (plugin.statusFreezeHashMap.get(player.getUniqueId())){
                     case NONE:
                         return "";
                     case CHECKING:

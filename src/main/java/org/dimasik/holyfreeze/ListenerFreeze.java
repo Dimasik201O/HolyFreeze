@@ -111,6 +111,7 @@ public class ListenerFreeze implements Listener {
     public void on(PlayerJoinEvent event){
         if (plugin.freezeHashMap.containsKey(event.getPlayer().getUniqueId())) {
             plugin.freezeHashMap.get(event.getPlayer().getUniqueId()).updatePlayer();
+            plugin.updateStatus(event.getPlayer());
         }
     }
 
