@@ -20,7 +20,7 @@ import java.util.UUID;
 public final class HolyFreeze extends JavaPlugin {
 
     public static HashMap<UUID, Freeze> freezeHashMap = new HashMap<>();
-    public HashMap<UUID, StatusFreeze> statusFreezeHashMap = new HashMap<>();
+    public HashMap<Player, StatusFreeze> statusFreezeHashMap = new HashMap<>();
     private PAPIFreeze papiFreeze;
     private CommandFreeze commandFreeze;
     public static FileConfiguration config;
@@ -56,11 +56,11 @@ public final class HolyFreeze extends JavaPlugin {
     }
 
     public void updateStatus(Player player){
-        if(statusFreezeHashMap.get(player.getUniqueId()) != null){
-            if(statusFreezeHashMap.get(player.getUniqueId()) == StatusFreeze.AFK){
+        if(statusFreezeHashMap.get(player) != null){
+            if(statusFreezeHashMap.get(player) == StatusFreeze.AFK){
                 player.sendTitle("", "AFK", 0, 30, 0);
             }
-            if(statusFreezeHashMap.get(player.getUniqueId()) == StatusFreeze.CHECKING){
+            if(statusFreezeHashMap.get(player) == StatusFreeze.CHECKING){
                 player.sendTitle("", "На проверке", 0, 30, 0);
             }
         }

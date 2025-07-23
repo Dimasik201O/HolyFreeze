@@ -5,3 +5,14 @@ location:
   z: -10.5
   yaw: 0
   pitch: 0
+
+# блокирование входа с других серверов, если вызвали на проверку на одном
+deny-join:
+  enable: false
+  server: LITE-1
+  kick-message: "&cВы были заморожены на режиме %server% и не можете зайти на другой сервер!"
+  database:
+    host: localhost
+    user: root
+    password: "сайнес гпт кодер"
+    database: lite_freeze

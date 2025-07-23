@@ -6,6 +6,8 @@ depend:
   - PlaceholderAPI
 softdepend:
   - Multiverse-Core
+loadbefore:
+  - ChatPlaytime
 load: POSTWORLD
 commands:
   freezing:

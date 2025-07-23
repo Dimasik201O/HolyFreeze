@@ -70,13 +70,13 @@ public class CommandFreeze implements CommandExecutor, TabExecutor {
         else if(command.getName().equalsIgnoreCase("afkstaff")){
             if (sender instanceof Player) {
                 Player player = (Player) sender;
-                if(plugin.statusFreezeHashMap.get(player.getUniqueId()) == null || plugin.statusFreezeHashMap.get(player.getUniqueId()) != StatusFreeze.AFK){
-                    plugin.statusFreezeHashMap.put(player.getUniqueId(), StatusFreeze.AFK);
+                if(plugin.statusFreezeHashMap.get(player) == null || plugin.statusFreezeHashMap.get(player) != StatusFreeze.AFK){
+                    plugin.statusFreezeHashMap.put(player, StatusFreeze.AFK);
                     plugin.updateStatus(player);
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f[Staff] Афк включен!"));
                 }
                 else{
-                    plugin.statusFreezeHashMap.remove(player.getUniqueId());
+                    plugin.statusFreezeHashMap.remove(player);
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f[Staff] Афк выключен!"));
                     player.clearTitle();
                 }
@@ -87,13 +87,13 @@ public class CommandFreeze implements CommandExecutor, TabExecutor {
         else if(command.getName().equalsIgnoreCase("prova")){
             if (sender instanceof Player) {
                 Player player = (Player) sender;
-                if(plugin.statusFreezeHashMap.get(player.getUniqueId()) == null || plugin.statusFreezeHashMap.get(player.getUniqueId()) == StatusFreeze.NONE){
-                    plugin.statusFreezeHashMap.put(player.getUniqueId(), StatusFreeze.CHECKING);
+                if(plugin.statusFreezeHashMap.get(player) == null || plugin.statusFreezeHashMap.get(player) != StatusFreeze.CHECKING){
+                    plugin.statusFreezeHashMap.put(player, StatusFreeze.CHECKING);
                     plugin.updateStatus(player);
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f[Staff] Вы начали проверку!"));
                 }
                 else{
-                    plugin.statusFreezeHashMap.remove(player.getUniqueId());
+                    plugin.statusFreezeHashMap.remove(player);
                     sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&f[Staff] Вы закончили проверку!"));
                     player.clearTitle();
                 }

@@ -11,6 +11,7 @@ import org.bukkit.scheduler.BukkitTask;
 import java.util.Random;
 
 import static java.lang.Math.abs;
+import static org.dimasik.holyfreeze.HolyFreeze.enableBlockJoin;
 
 public class Freeze {
     public Player checker;
@@ -37,6 +38,9 @@ public class Freeze {
     }
 
     public void start(){
+        if(enableBlockJoin){
+            HolyFreeze.database.addPlayer(suspectName);
+        }
         suspectLocation = suspect.getLocation();
 
         if(teleport) {
@@ -95,6 +99,9 @@ public class Freeze {
     }
 
     public void stop(){
+        if(enableBlockJoin){
+            HolyFreeze.database.removePlayer(suspectName);
+        }
         if(messageTask != null) {
             messageTask.cancel();
         }
